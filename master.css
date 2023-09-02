@@ -1,0 +1,321 @@
+/* Start of styling rules */
+
+/* General rules */
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Default font of the page */
+    font-family: 'DM Sans', sans-serif;
+
+    /* Primary colors */
+    --softRed: hsl(10, 79%, 65%);
+    --cyan: hsl(186, 34%, 60%);
+
+    /* Neutral colors */
+    --darkBrown: hsl(25, 47%, 15%);
+    --medBrown: hsl(28, 10%, 53%);
+    --cream: hsl(27, 66%, 92%);
+    --vPaleOrange: hsl(33, 100%, 98%);
+
+    /* Primary colors when hovering over bars */
+    --lowRed: hsl(10, 79%, 65%, 0.6);
+    --lowCyan: hsl(186, 34%, 60%, 0.6);
+}
+
+
+.container {
+    height: 100vh;
+    background-color: var(--cream);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    row-gap: 20px;
+}
+
+
+header,
+main {
+    width: 37.5%;
+}
+
+
+header {
+    background-color: var(--softRed);
+    color: white;
+
+    padding: 30px 35px;
+    border-radius: 20px;
+    position: relative;
+}
+
+header > span {
+    display: block;
+}
+
+header .heading {
+    font-size: 18px;
+}
+
+header .value {
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+header > img {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+}
+
+
+main {
+    background-color: var(--vPaleOrange);
+
+    border-radius: 20px;
+    padding: 35px 40px;
+}
+
+main h1 {
+    color: var(--darkBrown);
+    font-size: 34px;
+}
+
+main .chart {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15.25%;
+}
+
+.chart > div {
+    color: var(--medBrown);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.chart .bar {
+    width: 50px;
+    background-color: var(--softRed);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.today {
+    background-color: var(--cyan) !important;
+}
+
+.today:hover {
+    background-color: var(--lowCyan) !important;
+}
+
+.bar .amount {
+    display: none;
+    background-color: var(--darkBrown);
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bar:hover {
+    background-color: var(--lowRed);
+}
+
+.bar:hover .amount {
+    display: block;
+}
+
+section hr {
+    border: 0;
+    border-top: 2px solid var(--cream);
+    margin: 35px 0;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    color: var(--medBrown);
+    font-size: 18px;
+}
+
+.total .thisMonth {
+    display: flex;
+    flex-direction: column;
+}
+
+.total .thisMonth .value {
+    color: var(--darkBrown);
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.total .lastMonth {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.total .lastMonth span {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.total .lastMonth .percent {
+    color: var(--darkBrown);
+    font-weight: 700;
+}
+
+.total .lastMonth:not(.percent) {
+    margin-bottom: 5px;
+}
+/* End of styling rules */
+
+
+/* Start of Mobile screens styling rules */
+@media (width < 768px) {
+
+    .container {
+        row-gap: 15px;
+    }
+
+    header,
+    main {
+        width: 91%;
+        max-width: 460px;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    header .heading {
+        font-size: 16px;
+    }
+
+    header .value {
+        font-size: 24px;
+        margin-top: 5px;
+    }
+
+    header img {
+        transform: translate(-25%, -50%) scale(0.8);
+    }
+
+    main h1 {
+        font-size: 24px;
+    }
+
+    .chart > div {
+        width: 15%;
+        font-size: 12px;
+    }
+
+    .chart .bar {
+        width: 77%;
+        border-radius: 3px;
+    }
+
+    .bar .amount {
+        font-size: 12px;
+        padding: 5px;
+        top: -33px;
+    }
+
+    section hr {
+        margin: 25px 0;
+    }
+
+    .total {
+        font-size: 16px;
+    }
+
+    .total .thisMonth .value {
+        font-size: 32px;
+    }
+}
+/* End of Mobile screens styling rules */
+
+
+/* Start of Tablet screens styling rules */
+@media (768px <= width < 1024px) {
+
+    header,
+    main {
+        width: 60%;
+        max-width: 510px;
+        padding: 25px;
+    }
+
+    main h1 {
+        font-size: 32px;
+    }
+
+    .chart > div {
+        width: 15%;
+        font-size: 16px;
+    }
+
+    .chart .bar {
+        width: 80%;
+    }    
+
+    .bar .amount {
+        font-size: 16px;
+        padding: 6px;
+        top: -40px;
+    }
+
+    section hr {
+        margin: 30px 0;
+    }
+}
+/* End of Tablet screens styling rules */
+
+
+/* Start of Laptop screens styling rules */
+@media (1024px <= width < 1440px) {
+
+    header,
+    main {
+        width: 50%;
+        max-width: 540px;
+        padding: 30px;
+    }
+
+    main h1 {
+        font-size: 34px;
+    }
+
+    .chart > div {
+        width: 15%;
+        font-size: 16px;
+    }
+
+    .chart .bar {
+        width: 80%;
+    }    
+
+    .bar .amount {
+        font-size: 16px;
+        padding: 8px;
+        top: -45px;
+    }
+
+    section hr {
+        margin: 30px 0;
+    }
+}
+/* End of Laptop screens styling rules */
